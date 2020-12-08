@@ -1,0 +1,195 @@
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  box-sizing: border-box;
+  color: white;
+  background-color: #2c2c2c;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.75em;
+  font-weight: 400;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets the global max-width
+*/
+
+.o-container {
+  max-width: 56em;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: App
+    ---
+    Main app wrapper
+*/
+
+.c-app {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/*
+    Component: Dashboard
+    ---
+    Dashboard components
+*/
+
+.c-dashboard {
+  display: grid;
+  grid-template-areas:
+    'current current current graph'
+    'trend30 trend90 trend180 graph';
+  grid-gap: 20px;
+}
+
+.c-dashboard__items {
+  background-color: #262626;
+  padding-left: 15px;
+  border: 1px solid #353535;
+  border-radius: 3px;
+}
+
+.c-dashboard__graph {
+  grid-area: graph;
+  width: 26em;
+}
+
+.c-dashboard__current {
+  grid-area: current;
+  height: 10em;
+  border: none;
+  border-radius: 0;
+  border-left: 3px solid red;
+  background-color: transparent;
+  position: relative;
+  display: grid;
+  grid-template-areas: 'current-content current-img';
+  grid-gap: 10em;
+}
+
+.c-dashboard__current h2 {
+  color: #8cabe6;
+  line-height: 1.75em;
+}
+
+.c-dashboard__current p {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 0;
+  margin: 16px 0;
+}
+
+.c-dashboard__current p span {
+  font-size: 16px;
+}
+
+.c-dashboard__current-content {
+  position: absolute;
+  bottom: 0;
+  grid-area: current-content;
+  width: 15em;
+}
+
+.c-dashboard__current-img {
+  grid-area: current-img;
+  width: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.js-trendtoday {
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 2px solid #464646;
+}
+
+.js-trendtoday p {
+  font-size: 1em;
+  margin-right: 16px;
+}
+
+.js-name {
+  margin: 0;
+}
+
+.c-dashboard__price {
+  display: flex;
+  justify-content: start;
+}
+
+.c-dashboard__trend30 {
+  grid-area: trend30;
+  min-width: 6em;
+}
+
+.c-dashboard__trend90 {
+  grid-area: trend90;
+  min-width: 6em;
+}
+
+.c-dashboard__trend180 {
+  grid-area: trend180;
+  min-width: 6em;
+}
+
+.c-dashboard__trend-negative {
+  fill: red;
+  vertical-align: bottom;
+}
+
+.c-dashboard__trend-positive {
+  fill: greenyellow;
+  vertical-align: bottom;
+}
+
+.c-dashboard__trend-neutral {
+  fill: grey;
+  vertical-align: bottom;
+}
