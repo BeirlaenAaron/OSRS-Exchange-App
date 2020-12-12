@@ -88,8 +88,7 @@ Default markup for images to make them responsive
   grid-template-areas:
     'current current current graph'
     'trend30 trend90 trend180 graph';
-  grid-gap: 30px;
-  width: 100%;
+  grid-gap: 20px;
 }
 
 .c-dashboard__items {
