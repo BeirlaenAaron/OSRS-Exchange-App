@@ -19,6 +19,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-size: 0.8em;
   font-weight: 700;
@@ -95,7 +100,8 @@ Default markup for images to make them responsive
 
 .c-dashboard__graph {
   grid-area: graph;
-  width: 26em;
+  width: 27em;
+  padding-right: 15px;
 }
 
 .c-dashboard__current {
@@ -152,7 +158,7 @@ Default markup for images to make them responsive
 
 .js-trendtoday p {
   font-size: 1em;
-  margin-right: 16px;
+  margin-right: 8px;
 }
 
 .js-name {
@@ -192,4 +198,14 @@ Default markup for images to make them responsive
 .c-dashboard__trend-neutral {
   fill: grey;
   vertical-align: bottom;
+}
+
+@media screen and (max-width: 750px) {
+  .c-dashboard {
+    grid-template-areas:
+    'current current current'
+    'trend30 trend90 trend180'
+    'graph graph graph';
+    padding: 30px;
+  }
 }
