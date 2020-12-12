@@ -89,6 +89,7 @@ Default markup for images to make them responsive
     'current current current graph'
     'trend30 trend90 trend180 graph';
   grid-gap: 20px;
+  width: 100%;
 }
 
 .c-dashboard__items {
@@ -102,7 +103,9 @@ Default markup for images to make them responsive
 .c-dashboard__graph {
   grid-area: graph;
   width: 27em;
+  max-width: 27em;
   padding-right: 15px;
+  width: 100%;
 }
 
 .c-dashboard__current {
@@ -116,6 +119,7 @@ Default markup for images to make them responsive
   display: grid;
   grid-template-areas: 'current-content current-img';
   grid-gap: 10em;
+  width: 100%;
 }
 
 .c-dashboard__current h2 {
@@ -174,16 +178,19 @@ Default markup for images to make them responsive
 .c-dashboard__trend30 {
   grid-area: trend30;
   min-width: 6em;
+  width: 100%;
 }
 
 .c-dashboard__trend90 {
   grid-area: trend90;
   min-width: 6em;
+  width: 100%;
 }
 
 .c-dashboard__trend180 {
   grid-area: trend180;
   min-width: 6em;
+  width: 100%;
 }
 
 .c-dashboard__trend-negative {
