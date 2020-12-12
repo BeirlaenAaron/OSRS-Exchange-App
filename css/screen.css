@@ -106,7 +106,7 @@ Default markup for images to make them responsive
 
 .c-dashboard__current {
   grid-area: current;
-  height: 160px;
+  height: 10em;
   border: none;
   border-radius: 0;
   border-left: 3px solid red;
@@ -114,7 +114,7 @@ Default markup for images to make them responsive
   position: relative;
   display: grid;
   grid-template-areas: 'current-content current-img';
-  grid-gap: 160px;
+  grid-gap: 10em;
 }
 
 .c-dashboard__current h2 {
@@ -172,17 +172,17 @@ Default markup for images to make them responsive
 
 .c-dashboard__trend30 {
   grid-area: trend30;
-  min-width: 100px;
+  min-width: 6em;
 }
 
 .c-dashboard__trend90 {
   grid-area: trend90;
-  min-width: 100px;
+  min-width: 6em;
 }
 
 .c-dashboard__trend180 {
   grid-area: trend180;
-  min-width: 100px;
+  min-width: 6em;
 }
 
 .c-dashboard__trend-negative {
