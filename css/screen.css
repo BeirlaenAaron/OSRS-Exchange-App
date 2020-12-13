@@ -9,7 +9,7 @@
 */
 
 html {
-  font-size: 1em;
+  font-size: 16px;
   line-height: 1.5em;
   font-family: 'IBM Plex Sans', 'Helvetica Neue', 'Arial', sans-serif;
   box-sizing: border-box;
@@ -100,7 +100,7 @@ Default markup for images to make them responsive
 
 .c-dashboard__graph {
   grid-area: graph;
-  width: 450px;
+  min-width: 27em;
   padding-right: 15px;
 }
 
@@ -207,5 +207,42 @@ Default markup for images to make them responsive
     'trend30 trend90 trend180'
     'graph graph graph';
     padding: 30px;
+  }
+
+  .c-dashboard__current-img {
+    grid-column: 3;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 620px) {
+
+  html {
+    font-size: 10px;
+  }
+
+  .c-dashboard__current {
+    height: 12em;
+  }
+
+  .c-dashboard {
+    grid-gap: 5px;
+  }
+
+  .c-dashboard__graph {
+    min-width: 20em;
+  }
+
+  .c-dashboard__trend30 {
+    min-width: 4em;
+  }
+
+  .c-dashboard__trend90 {
+    min-width: 4em;
+  }
+
+  .c-dashboard__trend180 {
+    min-width: 4em;
   }
 }
