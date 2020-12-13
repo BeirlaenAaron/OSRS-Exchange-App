@@ -272,7 +272,7 @@ Default markup for images to make them responsive
   }
 
   .c-dashboard__current {
-    grid-gap: 0;
+    grid-gap: 12em;
     width: 28em;
   }
 
