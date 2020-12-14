@@ -61,6 +61,37 @@ Default markup for images to make them responsive
   margin-right: auto;
 }
 
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
@@ -76,6 +107,51 @@ Default markup for images to make them responsive
   align-items: center;
   min-height: 100vh;
 }
+
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 10px;
+  background-color: #8cabe6;
+  color: #fff;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: 0.3em;
+  width: 10em;
+  margin-top: 2em;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+.c-button:hover {
+  box-shadow: 0 0 0 2px #ffffff;
+  background-color: #8cabf9;
+  transform: scale(1.02);
+}
+
+.c-button:focus {
+  background-color: var(--button-focus-backgroundColor);
+  border-color: var(--button-focus-borderColor);
+  box-shadow: var(--button-focus-boxShadow);
+}
+
+.c-button:active {
+  background-color: var(--button-active-backgroundColor);
+  border-color: var(--button-active-borderColor);
+  box-shadow: var(--button-active-boxShadow, 0);
+}
+
+.c-button--center {
+  display: flex;
+  justify-content: center;
+}
+
 
 /*
     Component: Dashboard
