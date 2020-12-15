@@ -1,9 +1,15 @@
+let randomButton = () => {
+	document.querySelector('.js-random-button').addEventListener("click", function() {
+		getAPIrandomId();
+	})
+}
+
 let drawChart = queryResponse => {
 	var ctx = document.querySelector('.js-graph').getContext('2d');
 	let values = Object.values(queryResponse.daily);
 	let prices = values.slice(150, 180);
 
-	let chart = new Chart(ctx, {
+	window.chart = new Chart(ctx, {
 		type: 'line',
 		data: {
 			labels: ['29 days ago', '28 days ago', '27 days ago', '26 days ago', '25 days ago', '24 days ago', '23 days ago', '22 days ago', '21 days ago', '20 days ago', '19 days ago', '18 days ago', '17 days ago', '16 days ago', '15 days ago', '14 days ago', '13 days ago', '12 days ago', '11 days ago', '10 days ago', '9 days ago', '8 days ago', '7 days ago', '6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', 'Yesterday', 'Today'],
@@ -41,6 +47,15 @@ let drawChart = queryResponse => {
 			}
 		}
 	})
+}
+
+let updateChart = queryResponse => {
+	let values = Object.values(queryResponse.daily);
+	let prices = values.slice(150, 180);
+
+	var chart = window.chart;
+	chart.data.datasets[0].data = prices;
+	chart.update();
 }
 
 let showData = queryResponse => {
@@ -123,8 +138,25 @@ let getAPIgraph = async () => {
 	drawChart(data);
 }
 
+let getAPIrandomId = async () => {
+	let randomId = Math.floor(Math.random() * (567 - 554) + 554);
+	const data = await fetch(`https://ancient-everglades-28312.herokuapp.com/http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=${randomId}`)
+		.then((r) => r.json())
+		.catch((err) => console.error('An error occured:', err));
+	const dataGraph = await fetch(`https://ancient-everglades-28312.herokuapp.com/https://services.runescape.com/m=itemdb_oldschool/api/graph/${randomId}.json`)
+		.then((r) => r.json())
+		.catch((err) => console.error('An error occured:', err));
+
+	document.querySelector('.js-img').src = `https://secure.runescape.com/m=itemdb_oldschool/1607338866869_obj_big.gif?id=${randomId}`
+
+	showData(data);
+	updateChart(dataGraph);
+	
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 	// 1 We will query the API with longitude and latitude.
 	getAPI();
 	getAPIgraph();
+	randomButton();
 });

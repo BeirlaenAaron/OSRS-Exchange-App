@@ -119,6 +119,7 @@ Default markup for images to make them responsive
   font-size: 1em;
   font-weight: 700;
   border-radius: 10px;
+  border: 1px solid #353535;
   background-color: #8cabe6;
   color: #fff;
   line-height: calc(var(--global-baseline) * 3);
@@ -130,21 +131,17 @@ Default markup for images to make them responsive
 }
 
 .c-button:hover {
-  box-shadow: 0 0 0 2px #ffffff;
   background-color: #8cabf9;
   transform: scale(1.02);
 }
 
 .c-button:focus {
-  background-color: var(--button-focus-backgroundColor);
-  border-color: var(--button-focus-borderColor);
-  box-shadow: var(--button-focus-boxShadow);
+  background-color: #262626;
 }
 
 .c-button:active {
-  background-color: var(--button-active-backgroundColor);
-  border-color: var(--button-active-borderColor);
-  box-shadow: var(--button-active-boxShadow, 0);
+  background-color: #8cabf9;
+  box-shadow: 0 0 0 3px #fff;
 }
 
 .c-button--center {
@@ -222,6 +219,7 @@ Default markup for images to make them responsive
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 3s ease;
 }
 
 .js-trendtoday {
