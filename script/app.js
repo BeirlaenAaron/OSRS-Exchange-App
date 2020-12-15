@@ -125,10 +125,14 @@ let showData = queryResponse => {
 }
 
 let getAPI = async () => {
+	console.log("Loading data...")
     const data = await fetch(`https://ancient-everglades-28312.herokuapp.com/http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=385`)
 		.then((r) => r.json())
 		.catch((err) => console.error('An error occured:', err));
 	showData(data);
+	document.querySelector('.c-loader').style.display = "none";
+	document.querySelector('.c-app').style.filter = "none"
+	console.log("Data loaded...")
 }
 
 let getAPIgraph = async () => {
@@ -140,6 +144,10 @@ let getAPIgraph = async () => {
 
 let getAPIrandomId = async () => {
 	let randomId = Math.floor(Math.random() * (567 - 554) + 554);
+
+	console.log("Loading data...")
+	document.querySelector('.c-app').style.filter = "blur(10px)"
+	document.querySelector('.c-loader').style.display = "block";
 	const data = await fetch(`https://ancient-everglades-28312.herokuapp.com/http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=${randomId}`)
 		.then((r) => r.json())
 		.catch((err) => console.error('An error occured:', err));
@@ -148,9 +156,12 @@ let getAPIrandomId = async () => {
 		.catch((err) => console.error('An error occured:', err));
 
 	document.querySelector('.js-img').src = `https://secure.runescape.com/m=itemdb_oldschool/1607338866869_obj_big.gif?id=${randomId}`
-
 	showData(data);
 	updateChart(dataGraph);
+
+	document.querySelector('.c-loader').style.display = "none";
+	document.querySelector('.c-app').style.filter = "none"
+	console.log("Data loaded...")
 	
 }
 
