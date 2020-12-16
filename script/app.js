@@ -132,7 +132,7 @@ let getAPI = async () => {
 	showData(data);
 	document.querySelector('.c-loader').style.display = "none";
 	document.querySelector('.c-app').style.filter = "none"
-	console.log("Data loaded...")
+	console.log("Data loaded.")
 }
 
 let getAPIgraph = async () => {
@@ -161,7 +161,7 @@ let getAPIrandomId = async () => {
 
 	document.querySelector('.c-loader').style.display = "none";
 	document.querySelector('.c-app').style.filter = "none"
-	console.log("Data loaded...")
+	console.log("Data loaded.")
 	
 }
 

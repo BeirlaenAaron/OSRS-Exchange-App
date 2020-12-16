@@ -70,6 +70,8 @@ h2 {
   --global-negative-color: red;
   --global-neutral-color: grey;
   --global-positive-color: greenyellow;
+
+  --global-error-color: red;
   
 
 }
@@ -172,6 +174,12 @@ h2 {
   transition: all .3s ease;
 }
 
+.c-app-landing {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
 
 /*
     Component: Button
@@ -194,16 +202,38 @@ h2 {
   transition: all .3s ease-in-out;
 }
 
+.c-button-newsletter {
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid var(--global-borderColor);
+  background-color: var(--global-color-alpha);
+  color: #fff;
+  line-height: calc(var(--global-baseline) * 3);
+  padding: 0.3em;
+  width: 7.5em;
+  top: 4px;
+  right: 4px;
+  margin: 0;
+  outline: none;
+  position: absolute;
+  transition: all .3s ease-in-out;
+}
+
 .c-button:hover {
   background-color: var(--global-color-alpha-dark);
   transform: scale(1.05);
 }
 
-.c-button:focus {
+.c-button-newsletter:hover {
+  background-color: var(--global-color-alpha-dark);
+}
+
+.c-button:focus, .c-button-newsletter:focus {
   background-color: var(--global-backgroundColor);
 }
 
-.c-button:active {
+.c-button:active, .c-button-newsletter:active {
   background-color: var(--global-color-alpha);
   box-shadow: 0 0 0 3px var(--global-html-color);
 }
@@ -211,6 +241,101 @@ h2 {
 .c-button--center {
   display: flex;
   justify-content: center;
+}
+
+
+/*
+    Component: Input
+    ---
+    Label components
+*/
+
+.c-input {
+  --input-borderColor: var(--global-borderColor)
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid var(--input-borderColor);
+  background-color: var(--global-backgroundColor);
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+
+.c-input:focus,
+.c-input:active {
+  border: 1px solid var(--global-color-alpha);
+}
+
+
+
+/*
+    Component: Label
+    ---
+    Label components
+*/
+
+.c-label {
+  font-size: 0.8em;
+  color: red;
+}
+
+.has-error {
+  --input-borderColor: var(--global-error-color);
+}
+
+
+/*
+    Component: Landing
+    ---
+    Landing page components
+*/
+
+.c-landing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto auto 1fr;
+  grid-gap: 16px;
+}
+
+.c-landing-logo {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.c-landing-title {
+  font-size: 1.5em;
+  grid-row: 2;
+  grid-column: 1;
+  color: var(--global-color-alpha);
+  font-weight: 700;
+}
+
+.c-landing-description {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.c-landing-mockup {
+  grid-row: 1/-1;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  width: 100%;
+  height: auto;
+}
+
+.c-landing-subscribe {
+  grid-row: 4;
+  grid-column: 1;
+}
+
+.c-landing-subscribe-input {
+  position: relative;
 }
 
 
@@ -358,6 +483,44 @@ h2 {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .c-app-landing {
+    max-width: 32em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .c-landing {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto 1fr;
+  }
+
+  .c-landing-logo {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  
+  .c-landing-title {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  
+  .c-landing-description {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  .c-landing-mockup {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  
+  .c-landing-subscribe {
+    grid-row: 4;
+    grid-column: 1;
+  }
+
+
 }
 
 @media (max-width: 620px) {
@@ -406,6 +569,16 @@ h2 {
   .c-dashboard__trend180 {
     min-width: 4em;
   }
+
+  .c-landing-logo {
+    width: 100%;
+  }
+
+  .c-button-newsletter {
+    font-size: 12px;
+    height: 36px;
+  }
+
 }
 
 @media (max-width: 420px) {
