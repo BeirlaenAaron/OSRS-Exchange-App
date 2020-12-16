@@ -13,8 +13,8 @@ html {
   line-height: 1.5em;
   font-family: 'IBM Plex Sans', 'Helvetica Neue', 'Arial', sans-serif;
   box-sizing: border-box;
-  color: white;
-  background-color: #2c2c2c;
+  color: var(--global-html-color);
+  background-color: var(--global-html-backgroundColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,15 +34,46 @@ h2 {
   font-weight: 400;
 }
 
+::-moz-selection {
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
+}
+
+::selection {
+  background: var(--global-selection-backgroundColor);
+  color: white;
+  text-shadow: none;
+}
+
+
 /*------------------------------------*\
-#Elements
+#Variables
 \*------------------------------------*/
 
-/*
-Elements: Images
----
-Default markup for images to make them responsive
-*/
+:root {
+  --global-color-alpha-light: #a1baeb;
+  --global-color-alpha: #8cabe6;
+  --global-color-alpha-dark: #779ce1; 
+
+  --global-color-neutral-light: #353535;
+  --global-color-neutral: #2c2c2c;
+  --global-color-neutral-dark: #262626;
+
+  --global-html-color: white;
+  --global-html-backgroundColor: var(--global-color-neutral);
+  --global-selection-backgroundColor: var(--global-color-alpha-light);
+
+  --global-borderColor: var(--global-color-neutral-light);
+  --global-backgroundColor: var(--global-color-neutral-dark);
+
+  --global-negative-color: red;
+  --global-neutral-color: grey;
+  --global-positive-color: greenyellow;
+  
+
+}
+
 
 /*------------------------------------*\
 #OBJECTS
@@ -96,6 +127,12 @@ Default markup for images to make them responsive
 #COMPONENTS
 \*------------------------------------*/
 
+/*
+    Component: Loader
+    ---
+    Loader for when something is loading
+*/
+
 .c-loader {
   position: absolute;
   left: 50%;
@@ -104,9 +141,9 @@ Default markup for images to make them responsive
   width: 60px;
   height: 60px;
   margin: -38px 0 0 -38px;
-  border: 8px solid #f3f3f3;
+  border: 8px solid var(--global-html-color);
   border-radius: 50%;
-  border-top: 8px solid #777777;
+  border-top: 8px solid var(--global-color-alpha);
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
@@ -146,8 +183,8 @@ Default markup for images to make them responsive
   font-size: 1em;
   font-weight: 700;
   border-radius: 10px;
-  border: 1px solid #353535;
-  background-color: #8cabe6;
+  border: 1px solid var(--global-borderColor);
+  background-color: var(--global-color-alpha);
   color: #fff;
   line-height: calc(var(--global-baseline) * 3);
   padding: 0.3em;
@@ -158,17 +195,17 @@ Default markup for images to make them responsive
 }
 
 .c-button:hover {
-  background-color: #8cabf9;
-  transform: scale(1.02);
+  background-color: var(--global-color-alpha-dark);
+  transform: scale(1.05);
 }
 
 .c-button:focus {
-  background-color: #262626;
+  background-color: var(--global-backgroundColor);
 }
 
 .c-button:active {
-  background-color: #8cabf9;
-  box-shadow: 0 0 0 3px #fff;
+  background-color: var(--global-color-alpha);
+  box-shadow: 0 0 0 3px var(--global-html-color);
 }
 
 .c-button--center {
@@ -192,9 +229,9 @@ Default markup for images to make them responsive
 }
 
 .c-dashboard__items {
-  background-color: #262626;
+  background-color: var(--global-backgroundColor);
   padding-left: 15px;
-  border: 1px solid #353535;
+  border: 1px solid var(--global-borderColor);
   border-radius: 3px;
 }
 
@@ -209,7 +246,7 @@ Default markup for images to make them responsive
   height: 10em;
   border: none;
   border-radius: 0;
-  border-left: 3px solid red;
+  border-left: 3px solid grey;
   background-color: transparent;
   position: relative;
   display: grid;
@@ -218,7 +255,7 @@ Default markup for images to make them responsive
 }
 
 .c-dashboard__current h2 {
-  color: #8cabe6;
+  color: var(--global-color-alpha);
   line-height: 1.75em;
 }
 
@@ -240,6 +277,10 @@ Default markup for images to make them responsive
   width: 15em;
 }
 
+.c-dashboard__current-name {
+  margin: 0;
+}
+
 .c-dashboard__current-img {
   grid-area: current-img;
   width: 10em;
@@ -249,7 +290,7 @@ Default markup for images to make them responsive
   transition: all 3s ease;
 }
 
-.js-trendtoday {
+.c-dashboard__current-trendtoday {
   display: flex;
   align-items: center;
   margin-left: 16px;
@@ -257,13 +298,9 @@ Default markup for images to make them responsive
   border-left: 2px solid #464646;
 }
 
-.js-trendtoday p {
+.c-dashboard__current-trendtoday p {
   font-size: 1em;
   margin-right: 8px;
-}
-
-.js-name {
-  margin: 0;
 }
 
 .c-dashboard__price {
@@ -287,19 +324,25 @@ Default markup for images to make them responsive
 }
 
 .c-dashboard__trend-negative {
-  fill: red;
+  fill: var(--global-negative-color);
   vertical-align: bottom;
 }
 
 .c-dashboard__trend-positive {
-  fill: greenyellow;
+  fill: var(--global-positive-color);
   vertical-align: bottom;
 }
 
 .c-dashboard__trend-neutral {
-  fill: grey;
+  fill: var(--global-neutral-color);
   vertical-align: bottom;
 }
+
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
 
 @media (max-width: 980px) {
   .c-dashboard {
