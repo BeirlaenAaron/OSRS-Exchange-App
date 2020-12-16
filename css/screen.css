@@ -606,14 +606,8 @@ h2 {
     grid-column: 2;
   }
 
-  .c-dashboard__trend30 {
-    width: 7em;
-  }
-
-  .c-dashboard__trend90 {
-    width: 7em;
-  }
-
+  .c-dashboard__trend30,
+  .c-dashboard__trend90,
   .c-dashboard__trend180 {
     width: 7em;
   }
