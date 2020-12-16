@@ -46,7 +46,6 @@ h2 {
   text-shadow: none;
 }
 
-
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
@@ -54,7 +53,7 @@ h2 {
 :root {
   --global-color-alpha-light: #a1baeb;
   --global-color-alpha: #8cabe6;
-  --global-color-alpha-dark: #779ce1; 
+  --global-color-alpha-dark: #779ce1;
 
   --global-color-neutral-light: #353535;
   --global-color-neutral: #2c2c2c;
@@ -72,10 +71,7 @@ h2 {
   --global-positive-color: greenyellow;
 
   --global-error-color: red;
-  
-
 }
-
 
 /*------------------------------------*\
 #OBJECTS
@@ -93,7 +89,6 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
-
 
 /*
     Object: Button reset
@@ -124,7 +119,6 @@ h2 {
   -webkit-appearance: none;
 }
 
-
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
@@ -151,13 +145,21 @@ h2 {
 }
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*
@@ -171,7 +173,7 @@ h2 {
   align-items: center;
   min-height: 100vh;
   filter: blur(10px);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .c-app-landing {
@@ -179,7 +181,6 @@ h2 {
   align-items: center;
   min-height: 100vh;
 }
-
 
 /*
     Component: Button
@@ -199,7 +200,7 @@ h2 {
   width: 10em;
   margin-top: 2em;
   outline: none;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .c-button-newsletter {
@@ -217,7 +218,7 @@ h2 {
   margin: 0;
   outline: none;
   position: absolute;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .c-button:hover {
@@ -229,20 +230,27 @@ h2 {
   background-color: var(--global-color-alpha-dark);
 }
 
-.c-button:focus, .c-button-newsletter:focus {
+.c-button:focus,
+.c-button-newsletter:focus {
   background-color: var(--global-backgroundColor);
 }
 
-.c-button:active, .c-button-newsletter:active {
+.c-button:active,
+.c-button-newsletter:active {
   background-color: var(--global-color-alpha);
   box-shadow: 0 0 0 3px var(--global-html-color);
+}
+
+.c-button-newsletter:disabled {
+  background-color: var(--global-color-neutral-dark);
+  color: grey;
+  pointer-events: none;
 }
 
 .c-button--center {
   display: flex;
   justify-content: center;
 }
-
 
 /*
     Component: Input
@@ -251,7 +259,6 @@ h2 {
 */
 
 .c-input {
-  --input-borderColor: var(--global-borderColor)
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -260,18 +267,16 @@ h2 {
   padding: 1em;
   color: white;
   border-radius: 10px;
-  border: 1px solid var(--input-borderColor);
+  border: 1px solid var(--input-borderColor, var(--global-borderColor));
   background-color: var(--global-backgroundColor);
   outline: none;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .c-input:focus,
 .c-input:active {
   border: 1px solid var(--global-color-alpha);
 }
-
-
 
 /*
     Component: Label
@@ -287,7 +292,6 @@ h2 {
 .has-error {
   --input-borderColor: var(--global-error-color);
 }
-
 
 /*
     Component: Landing
@@ -337,7 +341,6 @@ h2 {
 .c-landing-subscribe-input {
   position: relative;
 }
-
 
 /*
     Component: Dashboard
@@ -463,18 +466,16 @@ h2 {
   vertical-align: bottom;
 }
 
-
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
 
-
 @media (max-width: 980px) {
   .c-dashboard {
     grid-template-areas:
-    'current current current'
-    'trend30 trend90 trend180'
-    'graph graph graph';
+      'current current current'
+      'trend30 trend90 trend180'
+      'graph graph graph';
     padding: 30px;
   }
 
@@ -499,32 +500,29 @@ h2 {
     grid-row: 1;
     grid-column: 1;
   }
-  
+
   .c-landing-title {
     grid-row: 2;
     grid-column: 1;
   }
-  
+
   .c-landing-description {
     grid-column: 1;
     grid-row: 3;
   }
-  
+
   .c-landing-mockup {
     grid-column: 1;
     grid-row: 5;
   }
-  
+
   .c-landing-subscribe {
     grid-row: 4;
     grid-column: 1;
   }
-
-
 }
 
 @media (max-width: 620px) {
-
   html {
     font-size: 10px;
   }
@@ -540,11 +538,11 @@ h2 {
   .c-dashboard__current h2 {
     font-size: 16px;
   }
-  
+
   .c-dashboard__current p {
     font-size: 1.5em;
   }
-  
+
   .c-dashboard__current p span {
     font-size: 12px;
   }
@@ -578,7 +576,6 @@ h2 {
     font-size: 12px;
     height: 36px;
   }
-
 }
 
 @media (max-width: 420px) {
@@ -596,11 +593,11 @@ h2 {
   .c-dashboard__current h2 {
     font-size: 16px;
   }
-  
+
   .c-dashboard__current p {
     font-size: 1.5em;
   }
-  
+
   .c-dashboard__current p span {
     font-size: 12px;
   }

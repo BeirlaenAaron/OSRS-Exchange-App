@@ -19,13 +19,15 @@ const getDOMElements = function() {
 
 const addErrors = function(formField, errorField, errorMessage) {
     formField.classList.add('has-error');
-    errorField.style.display = 'block';
+    errorField.style.opacity = '100';
     errorField.innerHTML = errorMessage;
+    signInButton.disabled = true;
 }
 
 const removeErrors = function(formField, errorField) {
     formField.classList.remove('has-error');
-    errorField.style.display = 'none';
+    errorField.style.opacity = '0';
+    signInButton.disabled = false;
 }
 
 const doubleCheckEmailAddress = function() {
